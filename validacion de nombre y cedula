@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<ctype.h>
+int validarcedula( char cedula[50]);
+int validanombre(char nombre[50]);
+int main()
+{
+int sw;
+char nombre[50];
+char cedula[50];
+fflush(stdin);
+printf("ingrese  el nombre ");
+gets(nombre);
+sw=validanombre(nombre);	
+if(sw==0)
+{
+printf("el nombre esta bien ingresado ");	
+	}else{
+printf("el nombre esta mal ingresado");		
+	}
+printf("\n");		
+fflush(stdin);
+printf("ingrese la cedula  ");
+gets(cedula);
+sw=validarcedula(cedula);
+if(sw==0)
+{
+printf(" la cedula es valida");	
+	}	else {
+printf("la cedula es invalida")	;	
+	}
+
+
+}
+
+
+
+int validarcedula( char cedula[50])
+{
+int i=0,sw=0,j=0;
+j=strlen(cedula);
+while(i<j && sw==0)
+{
+if(isdigit(cedula[i])!=0){
+i++;	
+}else{
+sw=1;	
+}	
+}	
+return sw;
+}
+
+int validanombre(char nombre[50])
+{
+int i=0,sw=0,j=0;
+j=strlen(nombre);
+while(i<j && sw==0)
+{
+if(isalpha(nombre[i])!=0){
+i++;	
+}else{
+sw=1;	
+}	
+}
+return sw;	
+}
