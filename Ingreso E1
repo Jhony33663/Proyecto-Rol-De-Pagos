@@ -1,0 +1,101 @@
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct Jugador{
+	char Nombre[10];
+	char Apellido[10];
+	char Cedula[10];
+	char Equipo[10];
+} Jugador;
+
+typedef struct Encuentros{
+	char Posicion[10];
+	char Fecha[10];
+	int Goles;
+	int Minutos;	
+	int total; 
+}Encuentros;
+
+typedef struct Datos{
+	Jugador j; // local 
+	Encuentros e; // empleados
+	
+int 	nempleados [2]; 
+	
+}Datos;
+
+
+
+int main(int argc, char *argv[]) {
+	Datos datos[3];
+	Datos empleados[2]; 
+	int local[2]; 
+	int a[3]; 
+	int num=0; 
+	int loc=0; 
+	int nloc; 
+	
+	
+	int x = 0, i=0, j=0, totalGoles=0, totalMinutos=0;
+		
+	
+
+	
+	
+	for(x = 0; x<3;x++){
+		
+				 a[3]=x;  
+                 
+		printf("Local N %d \n " ,x);
+		printf("Ingrese los datos del Empleado (%d)\n",x);
+             	
+	//	for(i = 0; i<1; i++){
+		
+			printf("Nombre \t");
+			scanf("%s",&datos[x].e.Posicion); 
+			printf("Sueldo \t");
+			scanf("%d",&datos[x].e.Goles); 
+			printf("Bonos \t");
+			scanf("%d",&datos[x].e.Minutos); 
+
+		
+			
+	}
+	
+	
+	
+
+	
+		printf("Ingrese  consulta  \t");
+			scanf("%d",&num); 
+	
+
+
+
+	
+
+	
+	for(x=0;x<3;x++){
+	
+
+
+		("Numero de local  %d \n ",local); 
+		
+		if(num==x){
+		
+	
+		//for(i=0;i<1;i++){
+			totalGoles += datos[x].e.Goles;
+			totalMinutos += datos[x].e.Minutos;
+			datos[x].e.total=datos[x].e.Goles + datos[x].e.Minutos;
+			
+		printf("Empleado es: [%d] %s  \t Ingresos %d \t Egresos %d \t Liquido %d \n",x,datos[x].e.Posicion,datos[x].e.Goles,datos[x].e.Minutos,datos[x].e.total);
+		datos[x].e.total =0; }
+				
+		totalGoles=0;
+		totalMinutos=0;
+	
+}	
+
+	return 0;
+}
+	
