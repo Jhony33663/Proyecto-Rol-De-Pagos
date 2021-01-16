@@ -8,9 +8,14 @@
 #define CLAVE "password"
 #define LONGITUD 80
 #define set locale 
+#define CANTIDAD 5
+#define COLUMNAS 5
+#define LARG 20
 
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(){
+int main(int argc, char *argv[]) {
+	
 	system("color a");
 	setlocale(LC_ALL,"spanish");//LOCALE LIBRERIA EN ESPAÑOL
 	char usuario[LONGITUD + 1]; //cadena de longitud 80 + 1
@@ -22,7 +27,7 @@ int main(){
 	char apellido[LONGITUD + 1];
 	char dni[LONGITUD - 70];
 	char nombre_E[LONGITUD + 1];	
-	int i=0,op = 0,salida = 0,edad = 0,numero_doc = 0;	
+	int i2=0,op = 0,salida = 0,edad = 0,numero_doc = 0,op2=0;	
 	do{
 	system("cls");	
 	printf("\n\t\t\t----------------");
@@ -33,18 +38,18 @@ int main(){
 	printf("\tCLAVE:");
 	while(caracter = getch()){
 		if (caracter == 13) {
-		clave[i] = '\0';//marca el final de la cadena.	
+		clave[i2] = '\0';//marca el final de la cadena.	
 		break;	
 		}else if(caracter == 8){
-			if(i>0){
-			i--;
+			if(i2>0){
+			i2--;
 			printf("\b \b");//para borrar los caracteres.				
 			}
 			
 		}else{
 		printf("*");
-		clave[i] = caracter; //se guarda caracteres en clave posicion i.
-		i++;		
+		clave[i2] = caracter; //se guarda caracteres en clave posicion i.
+		i2++;		
 		}
 	}
 	
@@ -84,50 +89,104 @@ int main(){
 			}
 			case 1:
 			system("cls");		
-			printf("\n\t\t\t----------------");
-			printf("\n\t\t\t Ingrese Nombre\n");
-			scanf("%s",&nombre);
-			printf("\n\t\t\t Ingrese apellido\n");
-			scanf("%s",&apellido);
-			printf("\t\t\t----------------\n");	
-			printf("\n\t\t\t Ingrese Dni\n");
-			scanf("%s",&dni);
-			printf("\t\t\t----------------\n");	
-			printf("\n\t\t\t Ingrese edad\n");
-			scanf("%s",&edad);
-			printf("\t\t\t----------------\n");					
+			typedef enum{
+			Nombreg, //columna 0
+			Cantidadg, //columna 1
+			preciog, //columna2
+			Codigog //columna 3
+			}columnas_g;
+
+			unsigned char datosg[2][CANTIDAD][COLUMNAS][LARG],i3;
+			columnas_g columnasg;
+	
+			printf("Bienvenido Ingrese los productos\n\r");
+			for(i3=0;i3<CANTIDAD;i3++){
+				for(columnasg = 0; columnasg < COLUMNAS; columnasg++){
+					switch(columnasg){
+						case Nombreg:
+							printf("\n\t\t\tIngrese el Nombre:");
+							break;
+						case Cantidadg:
+							printf("\n\t\t\tIngrese la cantidad del producto:"); //
+							break;
+						case preciog:
+							printf("\n\t\t\tIngrese el precio del producto: ");
+							break;
+						case Codigog:
+							printf("\n\t\t\tIngrese el codigo del producto: ");	
+							break;
+					}		
+					scanf("%s",&datosg[i3][columnasg]);
+				}
+			}					
 			system("cls");				
 			break;
 			case 2:
 			system("cls");		
-			printf("\n\t\t\t----------------");
-			printf("\n\t\t\t Ingrese Nombre\n");
-			scanf("%s",&nombre);
-			printf("\n\t\t\t Ingrese apellido\n");
-			scanf("%s",&apellido);
-			printf("\t\t\t----------------\n");	
-			printf("\n\t\t\t Ingrese Dni\n");
-			scanf("%s",&dni);
-			printf("\t\t\t----------------\n");	
-			printf("\n\t\t\t Ingrese edad\n");
-			scanf("%s",&edad);
-			printf("\t\t\t----------------\n");					
+			typedef enum{
+			Nombrep, //columna 0
+			Cantidadp, //columna 1
+			preciop, //columna2
+			Codigop //columna 3
+			}columnas_p;
+
+			unsigned char datosp[2][CANTIDAD][COLUMNAS][LARG],i1;
+			columnas_p columnasp;
+	
+			printf("Bienvenido Ingrese los productos\n\r");
+			for(i1=0;i1<CANTIDAD;i1++){
+				for(columnasp = 0; columnasp < COLUMNAS; columnasp++){
+					switch(columnasp){
+						case Nombrep:
+							printf("\n\t\t\tIngrese el Nombre:");
+							break;
+						case Cantidadp:
+							printf("\n\t\t\tIngrese la cantidad del producto:"); //
+							break;
+						case preciop:
+							printf("\n\t\t\tIngrese el precio del producto: ");
+							break;
+						case Codigop:
+							printf("\n\t\t\tIngrese el codigo del producto: ");	
+							break;
+					}		
+					scanf("%s",&datosp[i1][columnasp]);
+				}
+			}					
 			system("cls");				
 			break;			
 			case 3:
 			system("cls");		
-			printf("\n\t\t\t----------------");
-			printf("\n\t\t\t Ingrese Nombre\n");
-			scanf("%s",&nombre);
-			printf("\n\t\t\t Ingrese apellido\n");
-			scanf("%s",&apellido);
-			printf("\t\t\t----------------\n");	
-			printf("\n\t\t\t Ingrese Dni\n");
-			scanf("%s",&dni);
-			printf("\t\t\t----------------\n");	
-			printf("\n\t\t\t Ingrese edad\n");
-			scanf("%s",&edad);
-			printf("\t\t\t----------------\n");					
+			typedef enum{
+			Nombrepb, //columna 0
+			Cantidadpb, //columna 1
+			preciopb, //columna2
+			Codigopb //columna 3
+			}columnas_pb;
+
+			unsigned char datospb[3][CANTIDAD][COLUMNAS][LARG],i4;
+			columnas_pb columnaspb;
+	
+			printf("Bienvenido Ingrese los productos\n\r");
+			for(i4=0;i4<CANTIDAD;i4++){
+				for(columnaspb = 0; columnaspb < COLUMNAS; columnaspb++){
+					switch(columnaspb){
+						case Nombrepb:
+							printf("\n\t\t\tIngrese el Nombre:");
+							break;
+						case Cantidadpb:
+							printf("\n\t\t\tIngrese la cantidad del producto:"); //
+							break;
+						case preciopb:
+							printf("\n\t\t\tIngrese el precio del producto: ");
+							break;
+						case Codigopb:
+							printf("\n\t\t\tIngrese el codigo del producto: ");	
+							break;
+					}		
+					scanf("%s",&datospb[3][i4][columnaspb]);
+				}
+			}					
 			system("cls");				
 			break;	
 			case 4:
@@ -146,16 +205,46 @@ int main(){
 			case 5:
 			system("cls");		
 			printf("\n\t\t\t\t\t\t ----------------");
-			printf("\n\t\t\t\t\t\t Ingrese Cedula\n:");				
-			scanf("%s",&dni);
-		printf("\n\t\t=======================================================================================");  
-		printf("\n\t\t\tROL INDIVIDUAL:\n");												
-		if(dni == 0 /*se encuentra en el espacio o vector*/){
-			printf("\n\t\t\t [SUELDO %d]\n\n");
-		}else{
-			printf("\n\t\t\t NO EXISISTEN REGISTROS.\n");
-		}
-		printf("\n\t\t=======================================================================================\n");		
+			
+			printf("\n\t\t\t\t\t\t\t Escoja un Número\n:");
+			printf("\n\t\t\t\t\t\t\t 1.Gerencia y Subgerencia\n");
+			printf("\n\t\t\t\t\t\t\t 2.Personal Administrativo\n");	
+			printf("\n\t\t\t\t\t\t\t 3.Personal Base\n");									
+			scanf("%d",&op2);
+			if(op2 == 1){
+			printf("\n\t\t=======================================================================================\n");  
+			//imprime matriz
+			printf("\n\rNombre\t\tCantidad\tPrecio\t      Codigo");
+			for(i3=0;i3<CANTIDAD;i3++){
+				printf("\n\r");
+				for(columnasg = 0;columnasg < COLUMNAS; columnasg++){
+					printf("%s\t\t",datosg[i3][columnasg]);
+				}
+			}
+			printf("\n\t\t=======================================================================================\n");			
+			}else if(op2 == 2){
+			printf("\n\t\t=======================================================================================\n");  
+			//imprime matriz
+			printf("\n\rNombre\t\tCantidad\tPrecio\t      Codigo");
+			for(i1=0;i1<CANTIDAD;i1++){
+				printf("\n\r");
+				for(columnasp = 0;columnasp < COLUMNAS; columnasp++){
+					printf("%s\t\t",datosp[i1][columnasp]);
+				}
+			}
+			printf("\n\t\t=======================================================================================\n");				
+			}else if(op2 == 3){
+			printf("\n\t\t=======================================================================================\n");  
+			//imprime matriz
+			printf("\n\rNombre\t\tCantidad\tPrecio\t      Codigo");
+			for(i4=0;i4<CANTIDAD;i4++){
+				printf("\n\r");
+				for(columnasg = 0;columnasg < COLUMNAS; columnasg++){
+					printf("%s\t\t",datospb[i4][columnaspb]);
+				}
+			}
+			printf("\n\t\t=======================================================================================\n");				
+			}
 			system("pause");
 			system("cls");				
 			break;	
@@ -206,7 +295,6 @@ int main(){
 		}while(salida != 7);
 		}else{
 		printf("\n\t HA SOBREPASADO EL NUMERO MAXIMO DE INTENTOS PERMITIDOS\n");
-		}
-
+		}	
 	return 0;
 }
