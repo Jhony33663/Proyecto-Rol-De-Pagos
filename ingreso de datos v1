@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <stdlib.h>
+//escritura de las estructuras
+typedef struct Empresa {
+char Nombre[20];
+char Direccion[30];
+char telefono[10];
+}Empresa;
+typedef struct drolpago{
+int Numero;
+char Fecha[10];	
+}DatosFactura;
+typedef struct trabajador{
+char Nombre[20];
+char Apellido[20];
+char Cedula[15];
+char cargo[20];
+}Cliente;
+typedef struct sueldo{
+float sueldo;	
+int horasextras;
+float bonos;
+}sueldo;
+typedef struct cuerpo{
+Empresa e;
+drolpago d;
+trabajador t[3];
+sueldo s;
+}cuerpo;
+
+int main(){
+struct cuerpo r;
+int i=0,op,ip,it;	
+
+printf("===================================================================================\n");
+printf("================================== pollos ===============================\n");
+printf("%s                                                %s\n",r.e.telefono,r.e.Direccion);
+printf("seleccione que sucursal que desea realizar el rol de pagos\n");
+printf("1. norte\n 2.sur ");
+scanf("%d",&op);
+ if (op==1);
+{
+printf(" bienvenido a la sucursal norte\n");
+printf("datos del empleado \n");
+do 
+{
+printf("ingrese el nombre del empleado");
+scanf("%s",r.t[i].Nombre);	
+printf("ingrese el apellido del empleado");
+scanf("%s",r.t[i].Apellido);	
+printf("ingrese la cedula del empleado");
+scanf("%s",r.t[i].Cedula);	
+printf("seleccione el cargo ");
+printf("1.gerente \n2. empleado medio \n3. empleado bajo");
+scanf("%d",&ip);
+switch(ip)
+{
+case 1:
+r.s.sueldo=900;	
+printf("ingrese  las horas extras");
+scanf("%d",&r.s.horasextras);
+printf("ingrese los bonos ");
+scanf("%f",&r.s.bonos);	
+printf("desea ingresa  otra persona \n");
+printf("1. si \n 2 . no\n");
+scanf("%d",&it)	;	
+break;
+case 2:
+r.s.sueldo=500;	
+printf("ingrese  las horas extras");
+scanf("%d",&r.s.horasextras);
+printf("ingrese los bonos ");
+scanf("%f",&r.s.bonos);	
+printf("desea ingresa  otra persona \n");
+printf("1. si \n 2 . no\n");
+
+scanf("%d",&it)	;	
+break;
+case 3:
+r.s.sueldo=320;	 
+printf("ingrese  las horas extras");
+scanf("%d",&r.s.horasextras);
+printf("ingrese los bonos ");
+scanf("%f",&r.s.bonos);	
+printf("desea ingresa  otra persona \n");
+printf("1. si \n 2 . no\n");
+scanf("%d",&it)	;
+break;
+}	
+}while(it!=2);
+printf("impresion de datos");
+
+}
+ if(op==2)
+{	
+}
+}
