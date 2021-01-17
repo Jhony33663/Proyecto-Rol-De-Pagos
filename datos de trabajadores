@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+ 
+struct empleado{
+	char nombre[100];
+	char sexo[20];
+	int sueldo;
+};
+ 
+main(){
+	int N;
+	printf("Ingrese la cantidad de empleados de DATASYSTEM: ");
+	scanf("%d",&N);
+	struct empleado E[N];
+ 
+	int i;
+	for(i=0;i<N;i++){
+		printf("Ingrese los datos del empleado %d\n",(i+1));
+		printf("Nombre: ");
+		gets(E[i].nombre);
+		printf("\n");
+		printf("Sexo: ");
+		gets(E[i].sexo);
+		printf("Sueldo: ");
+		scanf("%d",&E[i].sueldo);
+		printf("\n\n");
+	}
+}
