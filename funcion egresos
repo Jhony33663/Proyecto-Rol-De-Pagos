@@ -1,0 +1,17 @@
+void egresos()
+{
+struct cuerpo r;	
+printf("=============ingreso de egresos============");
+r.s.aportepersonal=r.s.sueldo*0.0935;
+printf("ingrese el total de prestamos solicitados");
+if("tiene prestamos pendientes ")
+printf("ingrese el total de prestamos solicitados");
+scanf("%.2f",&r.s.prestamoquirografario);
+printf("ingrese el total de anticipos solicitados");
+scanf("%.2f",&r.s.anticiposueldo);
+printf("ingrese el total de  multas acumuladas");
+scanf("%.2f",&r.s.multas);
+r.s.totaldeduccion=r.s.aportepersonal+r.s.prestamoquirografario+r.s.anticiposueldo+r.s.multas;
+r.s.fondoreserva=r.s.sueldo*0.0833;
+r.s.liquido=r.s.sueldo-r.s.totaldeduccion+r.s.fondoreserva;	
+}
