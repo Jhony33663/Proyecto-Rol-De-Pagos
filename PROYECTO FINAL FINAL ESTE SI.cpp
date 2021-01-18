@@ -69,7 +69,7 @@ void general(int v[10]);
 int main(int argc, char *argv[]) {
 ////////////////////////////////////////////////////////////////////////////////// Login	
 	system("color a");
-	setlocale(LC_ALL,"spanish");//LOCALE LIBRERIA EN ESPAÑOL
+	setlocale(LC_ALL,"spanish");//LOCALE LIBRERIA EN ESPAÃ‘OL
 	char usuario[LONGITUD + 1]; //cadena de longitud 80 + 1
 	char clave[LONGITUD + 1];
 	int intento = 0;
@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
 	
 	system("cls");	
 	printf("\n\t\t\t----------------");
-	printf("\n\t\t\t INICIE SESIÓN\n");
+	printf("\n\t\t\t INICIE SESIÃ“N\n");
 	printf("\t\t\t----------------\n");
 	printf("\n\tUSUARIO: ");
 	gets(usuario); //funcion para leer la cadena de caracteres.
@@ -169,7 +169,7 @@ void menu_principal(int *ptr){  // Funcion Menu Principal
 	printf("\n\t\t\t\t3.Reporte General\n");
 	printf("\n\t\t\t\t4.Salir\n");
 	printf("\t\t\t======================================================================\n");	
-	printf("Opción: ",162);
+	printf("OpciÃ³n: ",162);
 	do{
 		scanf("%d",&*ptr);
 	}while(*ptr<0 || *ptr>4);
@@ -232,16 +232,19 @@ void consulta_individual(){
 	aux1=aux1-1;
 		system("cls");
 	fflush(stdin);
-	printf("Cédula: %s\n",suc[aux].per[aux1].cedula);	
-    printf("\nNombre: %s\n",suc[aux].per[aux1].nombre);
-	printf("\nApellido: %s\n",suc[aux].per[aux1].apellido);
-	printf("\nEl sueldo de la persona es: %d\n\n",suc[aux].per[aux1].sueldo);
-	printf("\nTotal Horas Extra: %d\n",suc[aux].per[aux1].horase);
-	printf("\nValor Aporte personal: %.2f\n",suc[aux].per[aux1].r.aportepersonal);                         
+	printf("\n\t\t\t======================================================================");		
+	printf("\n\t\t\t\t\t ROL DE PAGOS INDIVIDUAL\t\t\n");
+	printf("\t\t\t======================================================================\n");	
+	printf("CÃ©dula: %s\n",suc[aux].per[aux1].cedula);	
+    printf("\nNombre: %s\t",suc[aux].per[aux1].nombre);
+	printf("Apellido: %s\n",suc[aux].per[aux1].apellido);
+	printf("\n\t\t\tEl sueldo de la persona es: %d\n\n",suc[aux].per[aux1].sueldo);
+	printf("\n\t\t\tTotal Horas Extra: %d\n",suc[aux].per[aux1].horase);
+	printf("\n\t\t\tValor Aporte personal: %.2f\n",suc[aux].per[aux1].r.aportepersonal);                         
     printf("\nEl efectivo destinado a fondos de reserva : %.2f\n\n",suc[aux].per[aux1].r.fondoreserva);
-  	printf("\nEl total de  ingresos de efectivo : %.2f\n\n",suc[aux].per[aux1].r.totalingreso);
-    printf("\nEl total de deduccion es : %.2f\n\n",suc[aux].per[aux1].r.totaldeduccion);
-	printf("\nEl sueldo liquido es : %.2f\n\n",suc[aux].per[aux1].r.liquido);
+  	printf("\n\t\t\tEl total de  ingresos de efectivo : %.2f\n\n",suc[aux].per[aux1].r.totalingreso);
+    printf("\n\t\t\tEl total de deduccion es : %.2f\n\n",suc[aux].per[aux1].r.totaldeduccion);
+	printf("\n\t\t\tEl sueldo liquido es : %.2f\n\n",suc[aux].per[aux1].r.liquido);
 		system("pause");
 	system("cls");
 }
@@ -274,7 +277,7 @@ void datos_personales(int c,int d){
 			}while(sw==1);
 		}
 		
-	printf("Ingrese la cédula :",130);
+	printf("Ingrese la cÃ©dula :",130);
 	scanf("%s",&suc[c].per[d].cedula);
 	
 		sw=validarcedula(suc[c].per[d].cedula);
