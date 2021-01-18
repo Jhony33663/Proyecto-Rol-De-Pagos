@@ -1,0 +1,106 @@
+#include<iostream>
+#include<string>
+#include<cmath>
+#include<windows.h>
+using namespace std;
+
+int main()
+{
+int horasLun=0, horasMar=0, horasMier=0, horasJue=0, horasVie=0, horasSab=0, horasDom=0;
+float horTotales=0, horExtra=0, dineroHoras=0, salario=0;
+float horExtLun=0, horExtMar=0, horExtMier=0, horExtJue=0, horExtVie=0, horExtSab=0;
+double dineroExtras=0;
+
+cout << “CALCULADORA DE HORAS LABORADAS EN LA SEMANA” << endl;
+cout << “=================================================================” << endl;
+cout << “Recomendacion: Si desea incluir minutos, reemplace los ‘:’ por ‘.'” << endl;
+cout << “Ejemplo: 2:30 (2 horas 30 minutos) se deben escribir 2.30” << endl;
+cout << “—————————————————————–” << endl;
+cout << “Ingrese su salario mensual (no incluya puntos): “;
+cin >> salario;
+cout << endl;
+cout << “ingrese las horas laboradas del lunes: “;
+cin >> horasLun;
+cout << endl;
+cout << “ingrese las horas laboradas del martes: “;
+cin >> horasMar;
+cout << endl;
+cout << “ingrese las horas laboradas del Miercoles: “;
+cin >> horasMier;
+cout << endl;
+cout << “ingrese las horas laboradas del Jueves: “;
+cin >> horasJue;
+cout << endl;
+cout << “ingrese las horas laboradas del Viernes: “;
+cin >> horasVie;
+cout << endl;
+cout << “ingrese las horas laboradas del Sabado: “;
+cin >> horasSab;
+cout << endl;
+cout << “ingrese las horas laboradas del Domingo: “;
+cin >> horasDom;
+cout << endl;
+
+// Código de totalización de horas
+horTotales = horasLun+horasMar+horasMier+horasJue+horasVie+horasSab+horasDom;
+
+// Caculador de horas extra
+if (horasLun >= 8.001 ){
+horExtLun = horasLun-8;
+horasLun = 8;
+}
+
+if (horasMar >= 8.001 ){
+horExtMar = horasMar-8;
+horasMar = 8;
+}
+
+if (horasMier >= 8.001 ){
+horExtMier = horasMier-8;
+horasMier = 8;
+}
+
+if (horasJue >= 8.001 ){
+horExtJue = horasJue-8;
+horasJue = 8;
+}
+
+if (horasVie >= 8.001 ){
+horExtVie = horasVie-8;
+horasVie = 8;
+}
+
+if (horasSab >= 4.001 ){
+horExtSab = horasSab-4;
+horasSab = 4;
+}
+
+horExtra = horExtLun+horExtMar+horExtMier+horExtJue+horExtVie+horExtSab+horasDom;
+
+// Calculador horas laborales normales
+salario = (salario / 4);
+
+// Calculador horas laborales extras del 37% por hora
+dineroExtras = (salario/44)*((horExtLun+horExtMar+horExtMier+horExtJue+horExtVie+horExtSab+horasDom)*1.63);
+
+system (“cls”);
+cout << “CALCULADORA DE HORAS LABORADAS EN LA SEMANA” << endl;
+cout << “=================================================================” << endl;
+cout << “RESULTADO DE HORAS LABORADAS” << endl;
+cout << “—————————————————————–” << endl;
+cout << “Usted ha trabajado un total de: ” << horTotales << ” horas”<< endl;
+cout << “Dinero generado por horas normales: $” << salario << endl;
+cout << “Horas extra laboradas: ” << horExtra << endl;
+cout << “Dinero generado por horas extra: $” << dineroExtras << endl;
+// Comparador de horas normales vs horas extra
+if (salario > horExtra) {
+cout << endl;
+cout << “Usted gano mas por horas laborales que por horas extra” << endl;
+} else {
+cout << endl;
+cout << “Usted gano mas por horas extra que por horas normales” << endl;
+}
+cout << endl << endl;
+system (“pause”);
+return 0;
+}
