@@ -303,7 +303,7 @@ void datos_personales(int c,int d){		// Ingreso de Datos Personales
 		}
 	
 }
-void ingresos(int c,int d){
+void ingresos(int c,int d){ // Calculo de valores contables (ENTRADAS)
 	int bon=0,cargo,op;
 		printf("\nUsted Ha Laborado Horas Extras?\n1.si\n2.no\nopcion:");
 		do{
@@ -324,10 +324,12 @@ void ingresos(int c,int d){
 			if(op == 1){
 			printf("\nIngrese el numero de horas Laboradas\n");
 			scanf("%d",&suc[c].per[d].horase);
+			// Realizamos los calculos y guardamos en las variables
 			suc[c].per[d].r.extras = ((suc[c].per[d].horase)*(suc[c].per[d].r.valor_h*1.25));
 			}else if(op == 2){
 			printf("\nIngrese el numero de horas Laboradas \n");
 			scanf("%d",&suc[c].per[d].horase);
+			// Realizamos los calculos y guardamos en las variables
 			suc[c].per[d].r.extras = ((suc[c].per[d].horase)*(suc[c].per[d].r.valor_h*1.50));
 			}	
 		}else{
@@ -352,20 +354,22 @@ void ingresos(int c,int d){
 		suc[c].per[d].r.totalingreso =suc[c].per[d].sueldo+suc[c].per[d].r.extras+suc[c].per[d].r.bono;
 		
 }	
-void egresos(int c,int d){	
-printf("\n=============Ingreso de Egresos============ \n");
-suc[c].per[d].r.aportepersonal=suc[c].per[d].sueldo*0.0935;
-printf("\nIngrese el total de prestamos solicitados: \n");
-scanf("%f",&suc[c].per[d].r.prestamoquirografario);
-printf("\nIngrese el total de anticipos solicitados: \n");
-scanf("%f",&suc[c].per[d].r.anticiposueldo);
-printf("\nIngrese el total de  multas acumuladas: \n");
-scanf("%f",&suc[c].per[d].r.multas);
-suc[c].per[d].r.totaldeduccion=(suc[c].per[d].r.aportepersonal+suc[c].per[d].r.prestamoquirografario+suc[c].per[d].r.anticiposueldo+suc[c].per[d].r.multas);
-suc[c].per[d].r.fondoreserva=suc[c].per[d].r.totalingreso*0.0833;
-suc[c].per[d].r.liquido=suc[c].per[d].r.totalingreso-(suc[c].per[d].r.totaldeduccion); 	
+void egresos(int c,int d){	// Calculo de valores contables (SALIDAS)
+	printf("\n=============Ingreso de Egresos============ \n");
+	suc[c].per[d].r.aportepersonal=suc[c].per[d].sueldo*0.0935;
+	printf("\nIngrese el total de prestamos solicitados: \n");
+	scanf("%f",&suc[c].per[d].r.prestamoquirografario);
+	printf("\nIngrese el total de anticipos solicitados: \n");
+	scanf("%f",&suc[c].per[d].r.anticiposueldo);
+	printf("\nIngrese el total de  multas acumuladas: \n");
+	scanf("%f",&suc[c].per[d].r.multas);
+	//CAlculos de valores reducibles
+	suc[c].per[d].r.totaldeduccion=(suc[c].per[d].r.aportepersonal+suc[c].per[d].r.prestamoquirografario+suc[c].per[d].r.anticiposueldo+suc[c].per[d].r.multas);
+	suc[c].per[d].r.fondoreserva=suc[c].per[d].r.totalingreso*0.0833;
+	suc[c].per[d].r.liquido=suc[c].per[d].r.totalingreso-(suc[c].per[d].r.totaldeduccion); 	
 }
-void ingreso_cargo(int c,int d){
+
+void ingreso_cargo(int c,int d){//Se especifican las funciones del empleado
 	
 	int opc=0,sw=0;
 	
@@ -381,7 +385,7 @@ void ingreso_cargo(int c,int d){
 	}while(opc<0 || opc>2);
 	
 	
-	switch(opc){
+	switch(opc){ // Dependiendo del cargo varia su sueldo
 		
 		case 1:
 			suc[c].per[d].sueldo = 800;
@@ -401,7 +405,7 @@ void ingreso_cargo(int c,int d){
 	}
 	
 	printf("\nDetalle su cargo:");
-	scanf("%s",&suc[c].per[d].descripcion);
+	scanf("%s",&suc[c].per[d].descripcion);			// Detalle mas profundo de la funcion que cumple el empleado
 		sw=validanombre(suc[c].per[d].descripcion);
 		if(sw==1){
 			do{
@@ -412,7 +416,7 @@ void ingreso_cargo(int c,int d){
 		}
 	printf("\n");
 }
-int validanombre(char nombre[50]){
+int validanombre(char nombre[50]){ // Funcion para verificar caracteres
 	
 	int i=0,sw=0,j=0;
 	
@@ -427,7 +431,7 @@ int validanombre(char nombre[50]){
 	}
 	return sw;	
 }
-int validarcedula( char cedula[50]){
+int validarcedula( char cedula[50]){	// Funcion para verificar datos
 	
 	int i=0,sw=0,j=0;
 	
@@ -442,7 +446,7 @@ int validarcedula( char cedula[50]){
 	}	
 	return sw;
 }
-void general(int v[10]){
+void general(int v[10]){		//Impresión General de una Sucursal
 	
 	int aux=0;
 	system("cls");
