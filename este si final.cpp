@@ -19,7 +19,7 @@
 
 //Datos Preestablecidos Para La Empresa
 struct empresa{
-	char nombre[30]="EL POLLO PROGRAMERO  SA"; // Declaramos los nombres ya puestos
+	char nombre[30]="EL POLLO PROGRAMERO  SA"; // Declaramos los nombres
 	char RUC[10]="001465579";
 	char telef[11]="0995327865";
 	int zona;
@@ -181,17 +181,18 @@ void menu_principal(int *ptr){  // Funcion Menu Principal
 
 	
 }
-void ingreso_sucursal(int *ptr, int v[10]){  // 
+void ingreso_sucursal(int *ptr, int v[10]){  // Definimos la sucursal y los trabajadores en ella
 	
 	int aux=0, sw=0;
 	system("cls");
 	printf("Ingrese zona de la sucursal:\n");
 	printf("1. SUR\n");
 	printf("2. NORTE\nopcion:");
+	//Con el do verficamos que los valores que se ingresan son correctos
 	do{
 		scanf("%d",&empresa.zona);
 		if(empresa.zona<0 || empresa.zona>2){
-			printf("Opcion no valida\n");
+			printf("Opcion no valida\n");//caso de no ser valido saldra un mensaje de error
 		}
 	}while(empresa.zona<0 || empresa.zona>2);
 	system("cls");
@@ -206,8 +207,8 @@ void ingreso_sucursal(int *ptr, int v[10]){  //
 	}
 		
 		printf("Ingrese el numero de trabajadores: ");
-		scanf("%d",&*ptr);
-		v[aux]=*ptr;
+		scanf("%d",&*ptr); 	// con la direccion de memoria guardamos valores en el vector
+		v[aux]=*ptr;		// de esta manera podemos definir cuantos trabajadores ingresan en cada sucursal
 		system("cls");
 }
 void ingreso_datos(int c,int d){
