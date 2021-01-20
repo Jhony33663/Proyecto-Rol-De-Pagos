@@ -5,6 +5,8 @@
 #include<math.h>
 #include<ctype.h>
 #include<locale.h>//CARACTERES ESPECIALES
+
+//Valores Definidos Ingreso Usuario
 #define USUARIO "admin"
 #define CLAVE "password"
 #define LONGITUD 80
@@ -61,8 +63,8 @@ void general(int v[10]);
 int main(int argc, char *argv[]) {
 ////////////////////////////////////////////////////////////////////////////////// Login	
 	system("color a");
-	setlocale(LC_ALL,"spanish");//LOCALE LIBRERIA EN ESPAÑOL
-	setlocale(LC_ALL,"spanish");//LOCALE LIBRERIA EN ESPAÑOL
+	setlocale(LC_ALL,"spanish");//LOCALE LIBRERIA EN ESPAÃ‘OL
+	setlocale(LC_ALL,"spanish");//LOCALE LIBRERIA EN ESPAÃ‘OL
 	char usuario[LONGITUD + 1]; //cadena de longitud 80 + 1
 	char clave[LONGITUD + 1];
 	int intento = 0;
@@ -75,7 +77,7 @@ int main(int argc, char *argv[]) {
 
 	system("cls");	
 	printf("\n\t\t\t----------------");
-	printf("\n\t\t\t INICIE SESIÓN\n");
+	printf("\n\t\t\t INICIE SESIÃ“N\n");
 	printf("\t\t\t----------------\n");
 	printf("\n\tUSUARIO: ");
 	gets(usuario); //funcion para leer la cadena de caracteres.
@@ -160,7 +162,7 @@ void menu_principal(int *ptr){  // Funcion Menu Principal
 	printf("\n\t\t\t\t3.Reporte General\n");
 	printf("\n\t\t\t\t4.Salir\n");
 	printf("\t\t\t======================================================================\n");	
-	printf("Opción: ",162);
+	printf("OpciÃ³n: ",162);
 	scanf("%d",&*ptr);
 
 	
@@ -232,7 +234,7 @@ void consulta_individual(){
 	printf("\n\t\t\t======================================================================");		
 	printf("\n\t\t\t\t\t ROL DE PAGOS INDIVIDUAL\t\t\n");
 	printf("\t\t\t======================================================================\n");	
-	printf("Cédula: %s\n",suc[aux].per[aux1].cedula);	
+	printf("CÃ©dula: %s\n",suc[aux].per[aux1].cedula);	
     printf("\nNombre: %s\t",suc[aux].per[aux1].nombre);
 	printf("Apellido: %s\n",suc[aux].per[aux1].apellido);
 	printf("\n\t\t\tEl sueldo de la persona es: %d\n\n",suc[aux].per[aux1].sueldo);
@@ -273,7 +275,7 @@ void datos_personales(int c,int d){
 			}while(sw==1);
 		}
 
-	printf("Ingrese la cédula :",130);
+	printf("Ingrese la cÃ©dula :",130);
 	scanf("%s",&suc[c].per[d].cedula);
 
 		sw=validarcedula(suc[c].per[d].cedula);
