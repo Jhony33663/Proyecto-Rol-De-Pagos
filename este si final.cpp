@@ -14,12 +14,18 @@
 #define CANTIDAD 5
 #define COLUMNAS 5
 #define LARG 20
+
+//DECLARAMOS LAS ESTRUCTURAS
+
+//Datos Preestablecidos Para La Empresa
 struct empresa{
 	char nombre[30]="EL POLLO PROGRAMERO  SA"; // Declaramos los nombres ya puestos
 	char RUC[10]="001465579";
 	char telef[11]="0995327865";
 	int zona;
 }empresa;
+
+//Datos guardan variables contables
 struct rol{
 	float extras;
 	float bono;
@@ -33,6 +39,8 @@ struct rol{
 	float liquido;
 	float valor_h;
 };
+
+//Datos personales del trabajador
 struct persona{
 	char nombre[20];
 	char apellido[20];
@@ -43,6 +51,8 @@ struct persona{
 	struct rol r;
 	
 };
+
+//Datos de las diferentes sucursales
 struct sucursal{
 	char nombre[20];
 	char direccion[30];
