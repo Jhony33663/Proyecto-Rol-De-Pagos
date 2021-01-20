@@ -126,14 +126,17 @@ int main(int argc, char *argv[]) {
 ////////////////////////////////////////////////////////////       Menu     //////////////////////////////////////////////////////////////////	
 	do{
 		opc1=1;
+		// El ciclo se repite hasta que se de una opcion valida
 		do{
-			menu_principal(&opc_P);// 4 opcones del menu  
+			menu_principal(&opc_P);// 4 opciones del menu  
 		}while(opc_P<0 || opc_P>4);
+		
+		//OPCION NUMERO 1
 		if(opc_P==1){
 			
 			ingreso_sucursal(&cant,vec_can);                        // ingreso de sucursales 
-			for(int j=0;j<vec_can[empresa.zona-1];j++){
-				ingreso_datos(empresa.zona-1,j);                    
+			for(int j=0;j<vec_can[empresa.zona-1];j++){		// El vec_can nos ayuda a controlar el numero de trabajadores
+				ingreso_datos(empresa.zona-1,j);                // Ingreso De Todos Los Datos    
 			}
 		}else if(opc_P==2){
 			while(opc1==1){
@@ -163,6 +166,7 @@ int main(int argc, char *argv[]) {
 }
 void menu_principal(int *ptr){  // Funcion Menu Principal
 		system("cls");
+	// Impresion en pantalla del menu principal
 	printf("\n\t\t\t======================================================================");		
 	printf("\n\t\t\t\t\tBienvenido Al Sistema De Rol De Pagos\t\t\n");
 	printf("\t\t\t======================================================================\n");
@@ -173,7 +177,7 @@ void menu_principal(int *ptr){  // Funcion Menu Principal
 	printf("\n\t\t\t\t4.Salir\n");
 	printf("\t\t\t======================================================================\n");	
 	printf("Opción: ",162);
-	scanf("%d",&*ptr);
+	scanf("%d",&*ptr); // Lectura de la opcion
 
 	
 }
