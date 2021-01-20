@@ -138,26 +138,26 @@ int main(int argc, char *argv[]) {
 			for(int j=0;j<vec_can[empresa.zona-1];j++){		// El vec_can nos ayuda a controlar el numero de trabajadores
 				ingreso_datos(empresa.zona-1,j);                // Ingreso De Todos Los Datos    
 			}
-		}else if(opc_P==2){
+		}else if(opc_P==2){		//OPCION NUMERO 2
 			while(opc1==1){
-				consulta_individual();
-				printf("Desea Realizar Otra Consulta?\n");
+				consulta_individual(); //Llamada funcion
+				printf("Desea Realizar Otra Consulta?\n"); // Nos permite visualizar otro valor
 				printf("1.SI\t2.NO\n");
 				do{
 					scanf("%d",&opc1);
-				}while(opc1<0 || opc1>2);
+				}while(opc1<0 || opc1>2); // Condicion entre 1 y 2
 			}
-		}else if(opc_P==3){
+		}else if(opc_P==3){		//OPCION NUMERO 3
 			while(opc1==1){
 				general(vec_can);
-				printf("Desea Realizar Otra Consulta?\n");
+				printf("Desea Realizar Otra Consulta?\n"); // Nos permite visualizar otro valor 
 				printf("1.SI\t2.NO\n");
 				do{
 					scanf("%d",&opc1);
-				}while(opc1<0 || opc1>2);
+				}while(opc1<0 || opc1>2); // Condicion entre 1 y 2
 			}
 		}
-	}while(opc_P!=4);
+	}while(opc_P!=4);			//OPCION NUMERO 4
       system("cls");
 	printf("\n\t\t\t======================================================================");		
 	printf("\n\t\t\t\t\t GRACIAS POR USAR NUESTRO PROGRAMA \t\t\n");
@@ -211,7 +211,7 @@ void ingreso_sucursal(int *ptr, int v[10]){  // Definimos la sucursal y los trab
 		v[aux]=*ptr;		// de esta manera podemos definir cuantos trabajadores ingresan en cada sucursal
 		system("cls");
 }
-void ingreso_datos(int c,int d){
+void ingreso_datos(int c,int d){ // Unimos las funciones de ingreso de datos
 	
 	datos_personales(c,d);
 	ingreso_cargo(c,d);
@@ -219,14 +219,14 @@ void ingreso_datos(int c,int d){
 	egresos(c,d);
 	system("cls");
 }
-void consulta_individual(){
+void consulta_individual(){ 	//Reporte Individual
 	
 	int aux=0,aux1=0;
 	system("cls");
-	printf("\nSucursal que desea consultar\n");
+	printf("\nSucursal que desea consultar\n");	//Elegimos entre cual de las 2 Sucursales deseamos buscar
 	printf("1. SUR\n");
 	printf("2. NORTE\n");
-	do{
+	do{						//Validaciones
 		scanf("%d",&aux);
 		if(aux<0 || aux>2){
 			printf("Opcion no valida\n");
@@ -235,7 +235,7 @@ void consulta_individual(){
 	
 	aux=aux-1;
 	
-	printf("Numero de trabajador: ");
+	printf("Numero de trabajador: ");		// Buscamos el numero de trabajador
 	do{
 		scanf("%d",&aux1);
 		if(aux1<0 || aux1>4){
@@ -245,34 +245,34 @@ void consulta_individual(){
 	aux1=aux1-1;
 		system("cls");
 	fflush(stdin);
-	                      
+	                      //IMPRESION DE ROL INDIVIDUAL
 	printf("\n\t\t\t======================================================================");		
 	printf("\n\t\t\t\t\t ROL DE PAGOS INDIVIDUAL\t\t\n");
 	printf("\t\t\t======================================================================\n");	
 	printf("Cédula: %s\n",suc[aux].per[aux1].cedula);	
-    printf("\nNombre: %s\t",suc[aux].per[aux1].nombre);
+  	printf("\nNombre: %s\t",suc[aux].per[aux1].nombre);
 	printf("Apellido: %s\n",suc[aux].per[aux1].apellido);
 	printf("\n\t\t\tEl sueldo de la persona es: %d\n\n",suc[aux].per[aux1].sueldo);
 	printf("\n\t\t\tTotal Horas Extra: %d\n",suc[aux].per[aux1].horase);
 	printf("\n\n\t\t\tValor Aporte personal: %.2f\n",suc[aux].per[aux1].r.aportepersonal);                         
-    printf("\n\n\t\t\tEl efectivo destinado a fondos de reserva : %.2f\n\n",suc[aux].per[aux1].r.fondoreserva);
+   	printf("\n\n\t\t\tEl efectivo destinado a fondos de reserva : %.2f\n\n",suc[aux].per[aux1].r.fondoreserva);
   	printf("\n\t\t\tEl total de  ingresos de efectivo : %.2f\n\n",suc[aux].per[aux1].r.totalingreso);
-    printf("\n\t\t\tEl total de deduccion es : %.2f\n\n",suc[aux].per[aux1].r.totaldeduccion);
+  	printf("\n\t\t\tEl total de deduccion es : %.2f\n\n",suc[aux].per[aux1].r.totaldeduccion);
 	printf("\n\t\t\tEl sueldo liquido es : %.2f\n\n",suc[aux].per[aux1].r.liquido);
 		system("pause");
 	system("cls");
 }
-void datos_personales(int c,int d){
+void datos_personales(int c,int d){		// Ingreso de Datos Personales
 	int sw=0;
 	
 	printf("\n---------TRABAJADOR [%d]----------\n\n",d+1);
 	printf("Ingrese el nombre :");
 	scanf("%s",&suc[c].per[d].nombre);
 	
-		sw=validanombre(suc[c].per[d].nombre);
+		sw=validanombre(suc[c].per[d].nombre); // Funcion para validar el caracter 
 		if(sw==1){
 			do{
-				printf("el dato esta mal ingresado por favor vuelva a ingresar\n");	
+				printf("el dato esta mal ingresado por favor vuelva a ingresar\n");	//En caso error reipte el proceso
 				scanf("%s",&suc[c].per[d].nombre);
 				sw=validanombre(suc[c].per[d].nombre);
 			}while(sw==1);
@@ -281,10 +281,10 @@ void datos_personales(int c,int d){
 	printf("Ingrese el apellido :");
 	scanf("%s",&suc[c].per[d].apellido);
 	
-		sw=validanombre(suc[c].per[d].apellido);
+		sw=validanombre(suc[c].per[d].apellido);	// Funcion para validar el caracter 
 		if(sw==1){
 			do{
-				printf("el dato esta mal ingresado por favor vuelva a ingresar\n");	
+				printf("el dato esta mal ingresado por favor vuelva a ingresar\n");	//En caso error reipte el proceso
 				scanf("%s",&suc[c].per[d].apellido);
 				sw=validanombre(suc[c].per[d].apellido);
 			}while(sw==1);
@@ -293,7 +293,7 @@ void datos_personales(int c,int d){
 	printf("Ingrese la cédula :",130);
 	scanf("%s",&suc[c].per[d].cedula);
 
-		sw=validarcedula(suc[c].per[d].cedula);
+		sw=validarcedula(suc[c].per[d].cedula);		// Funcion para validar los datos 
 		if(sw==1){
 			do{
 				printf("el dato esta mal ingresado por favor vuelva a ingresar\n");	
